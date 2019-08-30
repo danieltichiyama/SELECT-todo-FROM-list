@@ -52,3 +52,35 @@ WHERE completed_at IS NULL;
 --13
 SELECT * FROM tasks
 ORDER BY created_at DESC;
+
+--14
+INSERT INTO tasks
+VALUES (DEFAULT, 'mistake 1','a test entry', now(),now(),NULL);
+
+--15
+INSERT INTO tasks
+VALUES (DEFAULT, 'mistake 2','another test entry', now(),now(),NULL);
+
+--16
+INSERT INTO tasks
+VALUES (DEFAULT, 'third mistake','another test entry', now(),now(),NULL);
+
+--17
+SELECT title FROM tasks
+WHERE title LIKE '%mistake%';
+
+--18
+DELETE FROM tasks
+WHERE title = 'mistake 1';
+
+--19
+SELECT title, description FROM tasks
+WHERE title LIKE '%mistake%';
+
+--20
+DELETE FROM tasks
+WHERE title LIKE '%mistake%';
+
+--21
+SELECT * FROM tasks
+ORDER BY title ASC;
